@@ -132,7 +132,7 @@ export class Player extends THREE.Group<THREE.Object3DEventMap> implements Objec
         }
 
         this.position.y = this.realY + 4 * Math.sin(Utils.getElapsedTime());
-        
+
         this.playerLight.position.copy(this.position);
     }
 

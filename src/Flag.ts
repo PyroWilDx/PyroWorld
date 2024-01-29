@@ -15,8 +15,8 @@ import { Scene } from './Scene';
 import { ToolCube } from './ToolCube';
 import { Utils } from './Utils';
 
-export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLookedInterface, 
-        ProjectDisplayerInterface, ClickableInterface {
+export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLookedInterface,
+    ProjectDisplayerInterface, ClickableInterface {
     public static readonly flagLerpDistance: number = 40;
 
     private static titleHolder: Flag | null = null;
@@ -24,7 +24,7 @@ export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLook
     private flagVidTexture: THREE.VideoTexture | null;
 
     private flagW: number;
-    private flagH: number;  
+    private flagH: number;
     private flagImgPath: string | null;
     private flagVidPath: string | null;
 
@@ -56,10 +56,10 @@ export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLook
     private DY2: number;
 
     constructor(flagW: number, flagH: number,
-            flagImgPath: string | null, flagVidPath: string | null,
-            flagStickRadius: number, flagStickH: number, flagStickColor: number,
-            projSectionId: string, xZoomShift: number, yZoomShift: number,
-            toolIconCubeImgsList: string[] | null, ...toolIconCubeImgs: string[]) {
+        flagImgPath: string | null, flagVidPath: string | null,
+        flagStickRadius: number, flagStickH: number, flagStickColor: number,
+        projSectionId: string, xZoomShift: number, yZoomShift: number,
+        toolIconCubeImgsList: string[] | null, ...toolIconCubeImgs: string[]) {
 
         let flagTexture: THREE.Texture | THREE.VideoTexture;
         if (flagImgPath != null) {
@@ -166,7 +166,7 @@ export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLook
                 let projectOverviewYear = document.getElementById("projectOverviewYear");
                 this.centeredText = projectOverviewText;
                 if (projectOverviewText != null && projectOverviewTitle != null &&
-                        projectOverviewYear != null) {
+                    projectOverviewYear != null) {
                     projectOverviewText.style.opacity = "1";
                     let titleEl = document.getElementById(this.flagProjectSectionId + "Title");
                     let yearEl = document.getElementById(this.flagProjectSectionId + "Year");
@@ -227,7 +227,7 @@ export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLook
         let projectSection = document.getElementById(this.flagProjectSectionId);
         if (projectSection != null) {
             Scene.setProjectDisplayer(this, projectSection);
-            
+
             let currCubePosition = this.position.clone();
             let addX = 85.1;
             // let addY = -1.4 * ToolCube.cubeSize / Scene.getScreenSizeRatio();
@@ -287,7 +287,7 @@ export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLook
     glowEffect(start: boolean, force: boolean = false, rmPointer: boolean = true): void {
         if (start) {
             if (Scene.getCameraLerpObject() != this &&
-                    Scene.getProjectDisplayer() != this) {
+                Scene.getProjectDisplayer() != this) {
                 // Utils.setEmissiveMesh(this.flagStickMesh, this.flagStickColor);
                 // Utils.setEmissiveMesh(this, "white");
                 // Scene.addEntity(this.flagGlowLight);
@@ -296,7 +296,7 @@ export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLook
             }
         } else {
             if (force || (Scene.getCameraLerpObject() != this &&
-                    Scene.getProjectDisplayer() != this)) {
+                Scene.getProjectDisplayer() != this)) {
                 // Utils.removeEmissiveMesh(this.flagStickMesh);
                 // Utils.removeEmissiveMesh(this);
                 // Scene.removeEntity(this.flagGlowLight);
@@ -321,15 +321,15 @@ export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLook
     }
 
     getYZoomShiftRatioed(): number {
-        return this.yZoomShift - this.yZoomShift * Scene.getScreenWidthRatio() 
-                                + this.yZoomShift * Scene.getScreenHeightRatio();
+        return this.yZoomShift - this.yZoomShift * Scene.getScreenWidthRatio()
+            + this.yZoomShift * Scene.getScreenHeightRatio();
     }
 
     onClick(): void {
         if (Scene.isDisplayingProject()) return;
-        
+
         if (Scene.getCameraLerpObject() != this &&
-                Scene.getProjectDisplayer() != this) {
+            Scene.getProjectDisplayer() != this) {
             Scene.removeProjectDisplayer();
 
             if (Scene.currentMenu == 0) {
@@ -385,7 +385,7 @@ export class Flag extends THREE.Mesh implements RayCastableInterface, ObjectLook
                 const waveY1 = this.AY1 * Math.sin(y * this.DY1 + t * 0.52);
                 const waveY2 = this.AY2 * Math.sin(y * this.DY2 + t * 0.36);
                 const ig = (x + this.halfFlagW) / this.flagW;
-                
+
                 let setI = (this.rotation.y == 0) ? i : vPositions.count - i - 1;
                 vPositions.setZ(setI, (waveX1 + waveX2 + waveY1 + waveY2) * ig);
             }

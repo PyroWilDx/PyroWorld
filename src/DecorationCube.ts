@@ -7,7 +7,7 @@ import { RotatingObject } from "./RotatingObject";
 import { Utils } from './Utils';
 
 export class DecorationCube extends RotatingObject implements RayCastableInterface, AnimatableInterface,
-        ClickableInterface {
+    ClickableInterface {
     private static readonly decelerationFactor: number = 0.0072;
     private static readonly minAcceleration: number = 0.0042;
 
@@ -17,7 +17,7 @@ export class DecorationCube extends RotatingObject implements RayCastableInterfa
 
     private acceleration: THREE.Vector3;
 
-    constructor(geometry: THREE.BufferGeometry, 
+    constructor(geometry: THREE.BufferGeometry,
         material: THREE.Material | THREE.Material[],
         rSpeed: THREE.Vector3, minSpeed: number = 0) {
         super(geometry, material, rSpeed, minSpeed);

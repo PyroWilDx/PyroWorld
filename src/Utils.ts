@@ -5,7 +5,7 @@ import './style.css';
 
 export class Utils {
 
-    private constructor() {}
+    private constructor() { }
 
     public static readonly clock: THREE.Clock = new THREE.Clock();
 
@@ -14,7 +14,7 @@ export class Utils {
     public static dt: number = 0;
 
     public static readonly rayCaster: THREE.Raycaster = new THREE.Raycaster();
-    
+
     public static readonly textureLoader: THREE.TextureLoader = new THREE.TextureLoader();
     public static readonly gltfLoader: GLTFLoader = new GLTFLoader();
 
@@ -24,10 +24,10 @@ export class Utils {
     public static mouseWheel: boolean = false;
     public static scrolled: boolean = false;
     public static keyMap: { [key: string]: boolean } = {};
-    
+
     static sleep(ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms));
-      }
+    }
 
     static getRandomVector3Spread(value: number): THREE.Vector3 {
         let randomVec: THREE.Vector3 = new THREE.Vector3();
@@ -70,10 +70,10 @@ export class Utils {
     }
 
     static areVector3AlmostEqual(v1: THREE.Vector3, v2: THREE.Vector3,
-            epsilon: number = 0.1): boolean {
+        epsilon: number = 0.1): boolean {
         return (Math.abs(v1.x - v2.x) < epsilon &&
-                Math.abs(v1.y - v2.y) < epsilon &&
-                Math.abs(v1.z - v2.z) < epsilon);
+            Math.abs(v1.y - v2.y) < epsilon &&
+            Math.abs(v1.z - v2.z) < epsilon);
     }
 
     static getElapsedTime(): number {
@@ -118,7 +118,7 @@ export class Utils {
     }
 
     static setEmissiveMesh(mesh: THREE.Mesh,
-            emissiveColor: THREE.ColorRepresentation) {
+        emissiveColor: THREE.ColorRepresentation) {
         // @ts-ignore
         mesh.material.emissive.set(emissiveColor);
     }
@@ -129,7 +129,7 @@ export class Utils {
     }
 
     static setEmissiveGLTF(gltfModel: THREE.Group<THREE.Object3DEventMap>,
-            intensityValue: number): void {
+        intensityValue: number): void {
         gltfModel.traverse((object: THREE.Object3D<THREE.Object3DEventMap>) => {
             // @ts-ignore
             if (object.isMesh) {
@@ -202,9 +202,9 @@ export class Utils {
 
         // @ts-ignore
         outer.parentNode.removeChild(outer);
-      
+
         return (1.1 * scrollbarWidth / window.innerWidth) * 2
-      
+
     }
 
     static implementsRayCastable(obj: THREE.Object3D): boolean {
@@ -241,18 +241,18 @@ export class Utils {
         return pos2D;
     }
 
-    static getObjectBehindPosition(frontObj: THREE.Object3D, 
-            distance: number, customRotation: THREE.Euler | null = null): THREE.Vector3 {
+    static getObjectBehindPosition(frontObj: THREE.Object3D,
+        distance: number, customRotation: THREE.Euler | null = null): THREE.Vector3 {
         let rot = frontObj.rotation.clone();
 
         if (customRotation != null) frontObj.rotation.copy(customRotation);
 
         let resPosition = new THREE.Vector3();
         frontObj.getWorldPosition(resPosition);
-        
+
         const offset = new THREE.Vector3(0, 0, -distance);
         offset.applyQuaternion(frontObj.getWorldQuaternion(new THREE.Quaternion()));
-    
+
         resPosition.add(offset);
 
         if (customRotation != null) frontObj.rotation.copy(rot);
@@ -261,7 +261,7 @@ export class Utils {
     }
 
     static positionObjectBehind(frontObj: THREE.Object3D, behindObj: THREE.Object3D,
-            distance: number, customRotation: THREE.Euler | null = null) {
+        distance: number, customRotation: THREE.Euler | null = null) {
         if (customRotation != null) behindObj.rotation.copy(customRotation);
         else behindObj.rotation.copy(frontObj.rotation);
 

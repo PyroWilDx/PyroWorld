@@ -38,7 +38,7 @@ export class CameraFollowObject extends THREE.Mesh implements ObjectLookedInterf
     onLookProgress(cameraLerp: CameraLerp): void {
         if (cameraLerp.getMaxDist() == -1) {
             // if (Scene.camera.position.y < 1.10 * Scene.galaxy.getGalaxyModelPosition().y) {
-                Scene.removeCameraLerp();
+            Scene.removeCameraLerp();
             // }
         } else {
             this.setCameraLerpParams(cameraLerp);

@@ -97,6 +97,7 @@
     from {
         transform: translateY(-4px);
     }
+
     to {
         transform: translateY(6px);
     }
@@ -154,7 +155,7 @@
     height: 6%;
     width: 60%;
 }
-  
+
 .loading-value {
     box-shadow: 0 10px 40px -10px #FFFFFF;
     border-radius: 100px;
@@ -194,7 +195,7 @@
     top: 10px;
     right: 12px;
 }
-  
+
 .menu-clickable {
     user-select: none;
     margin: 4px;
@@ -241,7 +242,7 @@
 :root {
     --dark-bg: rgba(42, 42, 42, 0.92);
     --spacing: 30%;
-  
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -274,7 +275,7 @@ main {
     flex-direction: column;
     align-items: center;
 }
-  
+
 section {
     padding: 1rem;
     background: var(--dark-bg);
@@ -365,7 +366,7 @@ p {
     margin-left: 6px;
     margin-right: 6px;
 }
-  
+
 .button-link:hover {
     background-color: #0056a9;
 }
@@ -407,7 +408,7 @@ p {
     height: 10px;
     width: 12%;
 }
-  
+
 .progress-value {
     animation: load 0.2s normal forwards;
     box-shadow: 0 10px 40px -10px #FFFFFF;
@@ -515,16 +516,20 @@ p {
     0% {
         transform: rotate(0deg)
     }
+
     50% {
         transform: rotate(-90deg)
     }
+
     100% {
         transform: rotate(-90deg)
     }
 }
 
 @media only screen and (max-device-width: 812px) and (orientation: landscape) {
-    .phone, .message {
+
+    .phone,
+    .message {
         display: block;
     }
 }

@@ -14,26 +14,26 @@ export class CameraLerp {
     private lookPosition: THREE.Vector3 | null;
     private lookQuaternion: THREE.Quaternion | null;
     private lookObject: ObjectLookedInterface | null;
-    
+
     private distEpsilon: number;
     private rotEpsilon: number;
 
     private maxDist: number;
 
     constructor(camera: THREE.PerspectiveCamera,
-            finalPosition: THREE.Vector3, lookObject: ObjectLookedInterface | null) {
+        finalPosition: THREE.Vector3, lookObject: ObjectLookedInterface | null) {
         // this.lerpSpeed = 0.026;
         this.lerpSpeed = 0.036;
         this.rotateSpeed = 0.08;
 
         this.lookAtObject = true;
-        
+
         this.camera = camera;
         this.finalPosition = finalPosition;
         this.lookPosition = null;
         this.lookQuaternion = null;
         this.lookObject = lookObject;
-        
+
         // this.distEpsilon = 1;
         this.distEpsilon = 1.2;
         // this.rotEpsilon = 0.002;
@@ -42,7 +42,7 @@ export class CameraLerp {
         this.maxDist = 0;
 
         if (this.lookObject != null) this.lookObject.onLookStart(this);
-    } 
+    }
 
     updateFrame() {
         if (this.camera.position.distanceTo(this.finalPosition) > this.maxDist) {
@@ -55,7 +55,7 @@ export class CameraLerp {
             cmpQuaternion = this.lookQuaternion;
         } else {
             let tmpCam = this.camera.clone();
-            
+
             if (this.lookAtObject) {
                 let lookAtPos = new THREE.Vector3(0, 0, 0);
                 if (this.lookPosition != null) lookAtPos = this.lookPosition;
@@ -69,7 +69,7 @@ export class CameraLerp {
         if (this.lookObject != null) this.lookObject.onLookProgress(this);
 
         if (this.camera.position.distanceTo(this.finalPosition) < this.distEpsilon &&
-                Math.abs(this.camera.quaternion.dot(cmpQuaternion)) > 1 - this.rotEpsilon) {
+            Math.abs(this.camera.quaternion.dot(cmpQuaternion)) > 1 - this.rotEpsilon) {
             if (this.lookObject != null) this.lookObject.onLookEnd();
             Scene.removeCameraLerp();
         }

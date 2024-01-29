@@ -358,8 +358,8 @@ MainInit.initRoad();
 LoadingScreen.updateCount();
 
 // Event Listeners
-window.addEventListener("focus", () => { 
-    Utils.dt = 0;
+window.addEventListener("focus", () => {
+	Utils.dt = 0;
 }, false);
 
 window.addEventListener('resize', () => {
@@ -377,11 +377,11 @@ window.addEventListener('mousedown', (event) => {
 		Utils.isMouseDown = true;
 
 		galaxy.updateCurrentHoldObj();
-		
+
 		if (event.target instanceof HTMLElement) {
 			let id = event.target.id;
-			if (!galaxy.rayCastObjects(true, true, true) && 
-					id === Scene.projBgContainerId) {
+			if (!galaxy.rayCastObjects(true, true, true) &&
+				id === Scene.projBgContainerId) {
 				Scene.rmDisplayHold = true;
 			}
 		}
@@ -417,9 +417,9 @@ window.addEventListener('mouseup', (event) => {
 
 		if (event.target instanceof HTMLElement) {
 			let id = event.target.id;
-			if (Scene.rmDisplayHold && 
-					!galaxy.rayCastObjects(true, true, true) &&
-					id === Scene.projBgContainerId) {
+			if (Scene.rmDisplayHold &&
+				!galaxy.rayCastObjects(true, true, true) &&
+				id === Scene.projBgContainerId) {
 				Scene.removeProjectDisplayer();
 			}
 		}
@@ -429,9 +429,9 @@ window.addEventListener('mouseup', (event) => {
 
 window.addEventListener('mousemove', (event) => {
 	if (Scene.askRotating) return;
-	
+
 	if (!loaded) return;
-	
+
 	Utils.updateMousePosition(event);
 });
 
@@ -449,12 +449,12 @@ window.addEventListener("wheel", (event) => {
 	Utils.mouseWheel = true;
 
 	if (Scene.currentMenu == 0 && !Scene.isDisplayingProject() &&
-			!(Scene.aboutSectionTargetOpacity == 1)) {
+		!(Scene.aboutSectionTargetOpacity == 1)) {
 		event.preventDefault();
 	}
 
 	if (Scene.currentMenu == 0 && Scene.cameraFollowingObj &&
-			!(Scene.aboutSectionTargetOpacity == 1)) {
+		!(Scene.aboutSectionTargetOpacity == 1)) {
 		let forward = event.deltaY >= 0;
 		MainInit.moveForward(forward);
 
@@ -476,7 +476,7 @@ window.addEventListener("wheel", (event) => {
 		}
 	}
 
-}, {passive: false});
+}, { passive: false });
 
 window.addEventListener("scroll", (event) => {
 	if (Scene.askRotating) {
@@ -492,12 +492,12 @@ window.addEventListener("scroll", (event) => {
 	if (Utils.mouseWheel) return;
 
 	if (Scene.currentMenu == 0 && !Scene.isDisplayingProject() &&
-			!(Scene.aboutSectionTargetOpacity == 1)) {
+		!(Scene.aboutSectionTargetOpacity == 1)) {
 		event.preventDefault();
 	}
 
 	if (Scene.currentMenu == 0 && Scene.cameraFollowingObj &&
-			!(Scene.aboutSectionTargetOpacity == 1)) {
+		!(Scene.aboutSectionTargetOpacity == 1)) {
 		const currentScrollHeight = document.documentElement.scrollTop;
 		let i = (currentScrollHeight / MainInit.scrollHeight) * MainInit.scrollLengthAdv;
 		i = Math.round(i / MainInit.scrollLengthAdv) * MainInit.scrollLengthAdv;
@@ -517,7 +517,7 @@ window.addEventListener("scroll", (event) => {
 			Utils.scrolled = true;
 		}
 	}
-}, {passive: false});
+}, { passive: false });
 
 let closeButton = document.getElementById("closeButton");
 if (closeButton != null) {
@@ -560,13 +560,13 @@ if (menuRoad != null && menuOverview != null && menuAbout != null) {
 
 		Scene.camera.fov = 60;
 		Scene.camera.updateProjectionMatrix();
-		
+
 		if (!Utils.scrolled) Scene.showScrollToExplore(true);
 
 		Galaxy.showButtonUpDown(false);
 
 		document.documentElement.style.height = MainInit.htmlHeight;
-        window.scrollTo({
+		window.scrollTo({
 			top: (MainInit.i / MainInit.scrollLengthAdv) * MainInit.scrollHeight,
 			behavior: 'auto'
 		});
@@ -593,11 +593,11 @@ if (menuRoad != null && menuOverview != null && menuAbout != null) {
 		Galaxy.showButtonUpDown(true);
 
 		document.documentElement.style.height = "100%";
-        window.scrollTo(0, 0);
+		window.scrollTo(0, 0);
 		Scene.hideProgressBar();
 
 		let galaxyModelPosition = galaxy.getGalaxyModelPosition();
-		let finalPosition = new THREE.Vector3(galaxyModelPosition.x, 
+		let finalPosition = new THREE.Vector3(galaxyModelPosition.x,
 			Galaxy.getGalaxyModelViewY(),
 			galaxyModelPosition.z);
 		let cameraLerp = Scene.setCameraLerp(finalPosition, null);
@@ -609,10 +609,10 @@ if (menuRoad != null && menuOverview != null && menuAbout != null) {
 	});
 
 	menuAbout.addEventListener("mouseover", () => {
-		if ((Scene.currentMenu == 0 && 
-				!Scene.isDisplayingProject() &&
-				(!Scene.isCameraLerping() || Scene.cameraFollowingObj) &&
-				Scene.aboutSection != null) ||
+		if ((Scene.currentMenu == 0 &&
+			!Scene.isDisplayingProject() &&
+			(!Scene.isCameraLerping() || Scene.cameraFollowingObj) &&
+			Scene.aboutSection != null) ||
 			(Scene.currentMenu == 1 &&
 				!Scene.isDisplayingProject() &&
 				Scene.aboutSection != null)) {
@@ -620,7 +620,7 @@ if (menuRoad != null && menuOverview != null && menuAbout != null) {
 			Scene.aboutSection.style.top = "8px";
 			Scene.aboutSectionTargetOpacity = 1;
 			document.documentElement.style.height = "100%";
-            window.scrollTo(0, 0);
+			window.scrollTo(0, 0);
 		}
 
 		if (Scene.currentMenu == 1 && !Scene.isDisplayingProject()) {
@@ -650,7 +650,7 @@ if (menuRoad != null && menuOverview != null && menuAbout != null) {
 
 	menuAbout.addEventListener("click", () => {
 		if (Scene.aboutSectionTargetOpacity == 1) return;
-		 
+
 		Scene.removeProjectDisplayer(false);
 		if (Scene.isCameraLerping() && !Scene.cameraFollowingObj && Scene.currentMenu != 1) {
 			Scene.removeCameraLerp();
@@ -712,14 +712,14 @@ let scrollToExplore = document.getElementById("scrollToExplore");
 let socialIcons = document.getElementById("socialIcons");
 let menu = document.getElementById("menu");
 if (loadingScreen != null && bg != null && scrollToExplore != null &&
-		socialIcons != null && menu != null) {
+	socialIcons != null && menu != null) {
 	bg.style.display = "";
 	scrollToExplore.style.display = "";
 	socialIcons.style.display = "";
 	menu.style.display = "";
 	for (LoadingScreen.preLoadCount = 0;
-			LoadingScreen.preLoadCount < LoadingScreen.preLoadMaxCount;
-			LoadingScreen.preLoadCount++) {
+		LoadingScreen.preLoadCount < LoadingScreen.preLoadMaxCount;
+		LoadingScreen.preLoadCount++) {
 		Utils.updateDt();
 		galaxy.updateFrame();
 		Scene.updateFrame();
