@@ -8,7 +8,7 @@ import { Scene } from './Scene';
 import { Utils } from "./Utils";
 
 export class ToolCube extends RotatingObject implements RayCastableInterface, AnimatableInterface,
-        ClickableInterface {
+    ClickableInterface {
     public static readonly cubeSize: number = 11;
 
     public beingAnimated: boolean;
@@ -21,8 +21,8 @@ export class ToolCube extends RotatingObject implements RayCastableInterface, An
     constructor(imgPath: string) {
         let cubeTexture = Utils.textureLoader.load(imgPath);
 
-        super(new THREE.BoxGeometry(ToolCube.cubeSize, 
-                    ToolCube.cubeSize, ToolCube.cubeSize), 
+        super(new THREE.BoxGeometry(ToolCube.cubeSize,
+            ToolCube.cubeSize, ToolCube.cubeSize),
             new THREE.MeshBasicMaterial({
                 map: cubeTexture,
                 side: THREE.FrontSide,

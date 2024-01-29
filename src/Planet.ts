@@ -13,8 +13,8 @@ export class Planet extends RotatingObject {
     public sphere: THREE.Sphere;
 
     constructor(imgPath: string, radius: number,
-            position: THREE.Vector3, emissiveIntensity: number = 0,
-            emissiveColor: THREE.ColorRepresentation = 0x0) {
+        position: THREE.Vector3, emissiveIntensity: number = 0,
+        emissiveColor: THREE.ColorRepresentation = 0x0) {
 
         // let nVerticles = Math.max(32, radius / 4);
         // nVerticles = Math.min(64, nVerticles);
@@ -43,8 +43,8 @@ export class Planet extends RotatingObject {
     }
 
     addRing(start: number, length: number, texturePath: string | null,
-                colorV: number | null,  emissiveIntensity: number,
-                emissiveColor: THREE.ColorRepresentation = 0x0): void {
+        colorV: number | null, emissiveIntensity: number,
+        emissiveColor: THREE.ColorRepresentation = 0x0): void {
         let tStart = start + this.radius;
 
         // let nVerticles = Math.max(64, (tStart + length) / 4);
@@ -62,7 +62,7 @@ export class Planet extends RotatingObject {
                 }),
                 rSpeed,
                 0.001
-            ); 
+            );
         }
         if (texturePath != null) {
             let ringTexture = Utils.textureLoader.load(texturePath);
@@ -86,7 +86,7 @@ export class Planet extends RotatingObject {
             this.rings.push(ringMesh);
         }
     }
-    
+
     hideFlag(): void {
         if (this.flag != null) {
             this.flag.hideSelf();
@@ -101,7 +101,7 @@ export class Planet extends RotatingObject {
 
     updateFrame(): void {
         this.rotate();
-    
+
         for (const currRingMesh of this.rings) {
             currRingMesh.rotate();
         }

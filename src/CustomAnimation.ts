@@ -6,7 +6,7 @@ import { AnimatableInterface } from './AnimatableInterface';
 export class CustomAnimation {
 
     private static animGen(animatable: AnimatableInterface, anim: any,
-            onCompleteFunction: Function | null = null) {
+        onCompleteFunction: Function | null = null) {
         let f: Function;
         if (onCompleteFunction != null) {
             f = () => {
@@ -14,8 +14,8 @@ export class CustomAnimation {
                 animatable.beingAnimated = false
             }
         } else {
-            f = () => { 
-                animatable.beingAnimated = false; 
+            f = () => {
+                animatable.beingAnimated = false;
             }
         }
         anim.onComplete(f);
@@ -33,7 +33,7 @@ export class CustomAnimation {
     }
 
     static popInAnimation(animatable: AnimatableInterface, duration: number,
-            force: boolean = false): boolean {
+        force: boolean = false): boolean {
         if (animatable.beingAnimated && !force) return false;
 
         let object = animatable.getObject();
@@ -52,9 +52,9 @@ export class CustomAnimation {
     }
 
     static popOutAnimation(animatable: AnimatableInterface, duration: number,
-            onCompleteFunction: Function | null = null, force: boolean = false): boolean {
+        onCompleteFunction: Function | null = null, force: boolean = false): boolean {
         if (animatable.beingAnimated && !force) return false;
-    
+
         let object = animatable.getObject();
 
         const targetScale = new THREE.Vector3(0, 0, 0);
@@ -63,21 +63,21 @@ export class CustomAnimation {
             .to(targetScale, duration);
 
         this.animGen(animatable, anim, onCompleteFunction);
-    
+
         return true;
     }
 
     static focusBigAnimation(animatable: AnimatableInterface, duration: number,
-            focused: boolean, force: boolean = false): boolean {
+        focused: boolean, force: boolean = false): boolean {
         if (animatable.beingAnimated && !force) return false;
-        
+
         let object = animatable.getObject();
 
         let targetScaleValue = 1.16;
         if (!focused) targetScaleValue = 1.0;
 
         let targetScale = new THREE.Vector3(targetScaleValue, targetScaleValue, targetScaleValue);
-    
+
         let anim = new TWEEN.Tween(object.scale)
             .to(targetScale, duration)
             .easing(TWEEN.Easing.Quadratic.Out);

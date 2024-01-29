@@ -10,9 +10,9 @@ export class Star extends THREE.Group<THREE.Object3DEventMap> {
     private currAngle: number;
     private rotDirection: number;
 
-    constructor(starModel: THREE.Group<THREE.Object3DEventMap>, 
-            rotationSpeed: number, moveSpeed: number, 
-            basePosition: THREE.Vector3) {
+    constructor(starModel: THREE.Group<THREE.Object3DEventMap>,
+        rotationSpeed: number, moveSpeed: number,
+        basePosition: THREE.Vector3) {
         super();
 
         this.add(starModel);
@@ -38,7 +38,7 @@ export class Star extends THREE.Group<THREE.Object3DEventMap> {
         this.position.set(baseX + Math.cos(this.currAngle) * this.baseDistToOrigin,
             baseY + Math.sin(this.currAngle) * this.baseDistToOrigin,
             baseZ + Math.cos(this.currAngle) * Math.sin(this.currAngle) * this.baseDistToOrigin);
-    
+
         this.currAngle += this.moveSpeed * this.rotDirection * Utils.dt;
     }
 

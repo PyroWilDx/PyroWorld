@@ -19,7 +19,7 @@ export class MainInit {
         0, -80, 200,
         0, -80, 100
     ];
-    
+
     // private static readonly curvePoints: number[] = [];
 
     public static readonly ls: number = 1000;
@@ -47,107 +47,107 @@ export class MainInit {
         // }
         // MainInit.curvePoints.push(MainInit.curvePoints[0],
         //     MainInit.curvePoints[1], MainInit.curvePoints[2]);
-        
-        const pts = [];    
+
+        const pts = [];
         for (let i = 0; i < MainInit.curvePoints.length; i += 3) {
-            pts.push(new THREE.Vector3(MainInit.curvePoints[i], 
+            pts.push(new THREE.Vector3(MainInit.curvePoints[i],
                 MainInit.curvePoints[i + 1], MainInit.curvePoints[i + 2]));
         }
-        
+
         const ws = 5;
         const wss = ws + 1;
-        
+
         const curve = new THREE.CatmullRomCurve3(pts);
         MainInit.points = curve.getPoints(MainInit.ls);
         const len = curve.getLength();
-        const lenList = curve.getLengths (MainInit.ls);
-        
+        const lenList = curve.getLengths(MainInit.ls);
+
         const faceCount = MainInit.ls * ws * 2;
         const vertexCount = MainInit.lss * wss;
-        
+
         const indices = new Uint32Array(faceCount * 3);
         const vertices = new Float32Array(vertexCount * 3);
         const uvs = new Float32Array(vertexCount * 2);
-        
+
         const g = new THREE.BufferGeometry();
-        g.setIndex(new THREE.BufferAttribute(indices, 1));	
+        g.setIndex(new THREE.BufferAttribute(indices, 1));
         g.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
         g.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
-        
+
         let idxCount = 0;
         let a, b1, c1, c2;
-        
-        for (let j = 0; j < MainInit.ls; j ++) {
-            for (let i = 0; i < ws; i ++) {
-                a =  wss * j + i;
+
+        for (let j = 0; j < MainInit.ls; j++) {
+            for (let i = 0; i < ws; i++) {
+                a = wss * j + i;
                 b1 = wss * (j + 1) + i;
                 c1 = wss * (j + 1) + i + 1;
                 c2 = wss * j + i + 1;
-                
+
                 indices[idxCount] = a;
                 indices[idxCount + 1] = b1;
-                indices[idxCount + 2] = c1; 
-                
+                indices[idxCount + 2] = c1;
+
                 indices[idxCount + 3] = a;
                 indices[idxCount + 4] = c1;
-                indices[idxCount + 5] = c2; 
-                
+                indices[idxCount + 5] = c2;
+
                 g.addGroup(idxCount, 6, i);
-                
+
                 idxCount += 6;
             }
         }
-        
+
         let uvIdxCount = 0;
-        for ( let j = 0; j < MainInit.lss ; j ++ ) {
-            for ( let i = 0; i < wss; i ++ ) {
+        for (let j = 0; j < MainInit.lss; j++) {
+            for (let i = 0; i < wss; i++) {
                 uvs[uvIdxCount] = lenList[j] / len;
                 uvs[uvIdxCount + 1] = i / ws;
-    
+
                 uvIdxCount += 2;
             }
         }
-        
+
         let x, y, z;
         let posIdx = 0;
-        
+
         let tangent;
         const normal = new THREE.Vector3();
         const binormal = new THREE.Vector3(0, 1, 0);
-        
-        for ( let j = 0; j < MainInit.lss; j ++ ) {
+
+        for (let j = 0; j < MainInit.lss; j++) {
             tangent = curve.getTangent(j / MainInit.ls);
             MainInit.t.push(tangent.clone());
-            
+
             normal.crossVectors(tangent, binormal);
-            
+
             normal.y = 0;
-            
+
             normal.normalize();
             MainInit.n.push(normal.clone());
-            
+
             binormal.crossVectors(normal, tangent);
-            MainInit.b.push(binormal.clone());	
-            
+            MainInit.b.push(binormal.clone());
+
         }
-        
+
         const dw = [-10, -8, -0.8, 0.8, 8, 10];
         // const dw = [-10, -10, -10, 10, 10, 10];
 
-        for ( let j = 0; j < MainInit.lss; j ++ ) {
-            for ( let i = 0; i < wss; i ++ ) {
+        for (let j = 0; j < MainInit.lss; j++) {
+            for (let i = 0; i < wss; i++) {
                 x = MainInit.points[j].x + dw[i] * MainInit.n[j].x;
                 y = MainInit.points[j].y;
-                z = MainInit.points[j].z + dw[i] * MainInit.n[j].z;		 
-    
+                z = MainInit.points[j].z + dw[i] * MainInit.n[j].z;
+
                 vertices[posIdx] = x;
                 vertices[posIdx + 1] = y;
                 vertices[posIdx + 2] = z;
-    
+
                 posIdx += 3;
             }
         }
-        
+
         const tex = new THREE.TextureLoader().load("res/imgs/maps/Multi.png");
         tex.wrapS = THREE.RepeatWrapping;
         tex.repeat.set(MainInit.ls * 2, 0);
@@ -186,7 +186,7 @@ export class MainInit {
                 emissive: 0xFFFFFF
             }),
         ];
-        
+
         const roadMesh = new THREE.Mesh(g, material);
         Scene.addEntity(roadMesh);
     }
@@ -202,9 +202,9 @@ export class MainInit {
     public static targetRoadHeight = 20;
 
     public static readonly barLength = 20;
-    public static readonly scrollHeight = 
+    public static readonly scrollHeight =
         window.innerHeight * (MainInit.barLength / 100);
-    public static readonly htmlHeight: string = 
+    public static readonly htmlHeight: string =
         (100 + MainInit.barLength * (MainInit.ls / MainInit.scrollLengthAdv - 1)) + "%";
 
     static moveForward(forward: boolean) {
@@ -251,9 +251,9 @@ export class MainInit {
         );
 
         window.scrollTo({
-			top: (MainInit.i / MainInit.scrollLengthAdv) * MainInit.scrollHeight,
-			behavior: 'auto'
-		});
+            top: (MainInit.i / MainInit.scrollLengthAdv) * MainInit.scrollHeight,
+            behavior: 'auto'
+        });
         Scene.setProgressBarProgress();
 
         if (!MainInit.doneOneRound) {

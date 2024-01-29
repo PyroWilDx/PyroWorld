@@ -64,7 +64,7 @@ export class Scene {
     public static sEMins: number[] = [0.1, 0.26, 0.32, 0.2, 0.22];
     public static readonly sEMax: number = 1;
     public static sEMaxs: number[] = [Scene.sEMax, Scene.sEMax, Scene.sEMax,
-        Scene.sEMax, Scene.sEMax];
+    Scene.sEMax, Scene.sEMax];
 
     public static rotateContainer: HTMLElement | null = null;
     public static askRotating: boolean = false;
@@ -167,7 +167,7 @@ export class Scene {
 
         Scene.camera.aspect = window.innerWidth / window.innerHeight;
         Scene.camera.updateProjectionMatrix();
-        
+
         Scene.renderer.setSize(window.innerWidth, window.innerHeight);
         Scene.effectComposer.setSize(window.innerWidth, window.innerHeight)
 
@@ -180,7 +180,7 @@ export class Scene {
             if (Scene.rotateContainer != null) Scene.rotateContainer.style.display = "none";
             Scene.askRotating = false;
         }
-        
+
         Scene.galaxy.replaceMenuFlags();
     }
 
@@ -249,7 +249,7 @@ export class Scene {
         let lastLookObject = Scene.getCameraLerpObject();
 
         Scene.cameraLerp = null;
-    
+
         if (lastLookObject != null) {
             lastLookObject.onLookInterruption();
         }
@@ -267,7 +267,7 @@ export class Scene {
     }
 
     static setProjectDisplayer(displayer: ProjectDisplayerInterface | null,
-            displayed: HTMLElement): void {
+        displayed: HTMLElement): void {
         Scene.aboutSectionTargetOpacity = 0;
 
         document.documentElement.style.height = "100%";
@@ -277,14 +277,14 @@ export class Scene {
         displayed.style.opacity = "0.01";
 
         let closeButton = document.getElementById("closeButton");
-        if (closeButton != null ) {
+        if (closeButton != null) {
             closeButton.style.display = "";
         }
 
         Scene.removeProjectDisplayer();
 
         let startTime = Utils.getTime();
-        Scene.projectDisplayer = {displayer, displayed, startTime};
+        Scene.projectDisplayer = { displayer, displayed, startTime };
     }
 
     static isDisplayingProject(): boolean {
@@ -303,7 +303,7 @@ export class Scene {
             // @ts-ignore
             Scene.projectDisplayer.displayed.style.display = "none";
             let closeButton = document.getElementById("closeButton");
-            if (closeButton != null ) {
+            if (closeButton != null) {
                 closeButton.style.display = "none";
             }
 
@@ -315,7 +315,7 @@ export class Scene {
             if (displayer != null) {
                 displayer.onProjectHideDisplay();
             }
-        
+
             if (scroll) {
                 if (Scene.currentMenu == 0) {
                     document.documentElement.style.height = MainInit.htmlHeight;
@@ -392,7 +392,7 @@ export class Scene {
             })
             .start();
     }
- 
+
     static updateFrame(): void {
         if (Scene.cameraLerp != null) {
             Scene.cameraLerp.updateFrame();
@@ -414,13 +414,13 @@ export class Scene {
 
         Scene.renderScene();
 
-        if (Scene.aboutSection != null && 
-                Scene.aboutSectionCurrOpacity != Scene.aboutSectionTargetOpacity) {
+        if (Scene.aboutSection != null &&
+            Scene.aboutSectionCurrOpacity != Scene.aboutSectionTargetOpacity) {
             if (Scene.aboutSectionCurrOpacity < Scene.aboutSectionTargetOpacity) {
-                Scene.aboutSectionCurrOpacity = Math.min(Scene.aboutSectionCurrOpacity + Utils.dt / 30., 
+                Scene.aboutSectionCurrOpacity = Math.min(Scene.aboutSectionCurrOpacity + Utils.dt / 30.,
                     Scene.aboutSectionTargetOpacity);
             } else {
-                Scene.aboutSectionCurrOpacity = Math.max(Scene.aboutSectionCurrOpacity - Utils.dt / 30., 
+                Scene.aboutSectionCurrOpacity = Math.max(Scene.aboutSectionCurrOpacity - Utils.dt / 30.,
                     Scene.aboutSectionTargetOpacity);
             }
             Scene.aboutSection.style.opacity = Scene.aboutSectionCurrOpacity.toString();

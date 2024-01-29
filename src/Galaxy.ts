@@ -44,7 +44,7 @@ export class Galaxy {
 
     private currMenuFlagZShifts: number;
 
-    public static readonly zShiftScrollLength: number = 20; 
+    public static readonly zShiftScrollLength: number = 20;
     public static readonly buttonUp: HTMLElement | null = document.getElementById("buttonUp");
     public static readonly buttonDown: HTMLElement | null = document.getElementById("buttonDown");
 
@@ -64,19 +64,19 @@ export class Galaxy {
 
         this.currHoldObj = null;
         this.currObj = null;
-    
+
         this.rayCastedObjects = [];
-    
+
         this.currMenuFlagZShifts = 0;
     }
 
     addBackgroundImg(backgroundPath: string) {
         let backgroundMesh = new THREE.Mesh(
             new THREE.SphereGeometry(this.radius, 64, 64),
-            new THREE.MeshBasicMaterial({ 
+            new THREE.MeshBasicMaterial({
                 map: Utils.textureLoader.load(backgroundPath),
                 side: THREE.BackSide
-              })
+            })
         );
         Scene.addEntity(backgroundMesh);
     }
@@ -132,7 +132,7 @@ export class Galaxy {
     }
 
     addStars(nStars: number, modelPath: string, scale: number): void {
-        Utils.gltfLoader.load(modelPath, ( gltf ) => {
+        Utils.gltfLoader.load(modelPath, (gltf) => {
             let baseStarModel = gltf.scene;
             Utils.setEmissiveGLTF(baseStarModel, 52);
             for (let i = 0; i < nStars; i++) {
@@ -147,7 +147,7 @@ export class Galaxy {
         });
     }
 
-    addPlanet(planet: Planet):void {
+    addPlanet(planet: Planet): void {
         this.allPlanets.push(planet);
     }
 
@@ -179,9 +179,9 @@ export class Galaxy {
         this.currHoldObj = this.currObj;
     }
 
-    rayCastObjects(justFindFirstClickable: boolean = false, 
-            justFindFirstObject: boolean = false,
-            ignoreFlags: boolean = false): boolean {
+    rayCastObjects(justFindFirstClickable: boolean = false,
+        justFindFirstObject: boolean = false,
+        ignoreFlags: boolean = false): boolean {
         Utils.rayCaster.setFromCamera(Utils.mousePosition, Scene.camera);
         const intersected = Utils.rayCaster.intersectObjects(Scene.getChildren());
 
@@ -310,41 +310,41 @@ export class Galaxy {
 
     updateFrame(): void {
         this.rayCast();
-        
-        // if (Scene.currentMenu == 0) {
-            for (const currStar of this.allStars) {
-                currStar.updateFrame();
-            }
-            for (const currPlanet of this.allPlanets) {
-                currPlanet.updateFrame();
-            }
-            if (this.player != null) this.player.updateFrame();
 
-            for (const currObj of this.otherObjects) {
-                currObj.rotate();
-                currObj.move();
-                if (currObj.position.x > Galaxy.otherObjMaxX) {
-                    currObj.position.x = Galaxy.otherObjMaxX;
-                    currObj.oppMX();
-                } else if (currObj.position.x < Galaxy.otherObjMinX) {
-                    currObj.position.x = Galaxy.otherObjMinX;
-                    currObj.oppMX();
-                }
-                if (currObj.position.y > Galaxy.otherObjMaxY) {
-                    currObj.position.y = Galaxy.otherObjMaxY;
-                    currObj.oppMY();
-                } else if (currObj.position.y < Galaxy.otherObjMinY) {
-                    currObj.position.y = Galaxy.otherObjMinY;
-                    currObj.oppMY();
-                }
-                if (currObj.position.z > Galaxy.otherObjMaxZ) {
-                    currObj.position.z = Galaxy.otherObjMaxZ;
-                    currObj.oppMZ();
-                } else if (currObj.position.z < Galaxy.otherObjMinZ) {
-                    currObj.position.z = Galaxy.otherObjMinZ;
-                    currObj.oppMZ();
-                }
+        // if (Scene.currentMenu == 0) {
+        for (const currStar of this.allStars) {
+            currStar.updateFrame();
+        }
+        for (const currPlanet of this.allPlanets) {
+            currPlanet.updateFrame();
+        }
+        if (this.player != null) this.player.updateFrame();
+
+        for (const currObj of this.otherObjects) {
+            currObj.rotate();
+            currObj.move();
+            if (currObj.position.x > Galaxy.otherObjMaxX) {
+                currObj.position.x = Galaxy.otherObjMaxX;
+                currObj.oppMX();
+            } else if (currObj.position.x < Galaxy.otherObjMinX) {
+                currObj.position.x = Galaxy.otherObjMinX;
+                currObj.oppMX();
             }
+            if (currObj.position.y > Galaxy.otherObjMaxY) {
+                currObj.position.y = Galaxy.otherObjMaxY;
+                currObj.oppMY();
+            } else if (currObj.position.y < Galaxy.otherObjMinY) {
+                currObj.position.y = Galaxy.otherObjMinY;
+                currObj.oppMY();
+            }
+            if (currObj.position.z > Galaxy.otherObjMaxZ) {
+                currObj.position.z = Galaxy.otherObjMaxZ;
+                currObj.oppMZ();
+            } else if (currObj.position.z < Galaxy.otherObjMinZ) {
+                currObj.position.z = Galaxy.otherObjMinZ;
+                currObj.oppMZ();
+            }
+        }
         // }
 
         if (Scene.currentMenu == 1) {
@@ -366,5 +366,5 @@ export class Galaxy {
             }
         }
     }
-    
+
 }
