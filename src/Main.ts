@@ -23,10 +23,10 @@ galaxy.addStars(156, "res/3d/MarioStar/scene.gltf", 1);
 const menuFlagAddY = -200;
 
 let kqPosition = new THREE.Vector3(-130, 52, 1600);
-let robotsPVZPosition = new THREE.Vector3(-130, 0, 1400);
+let eatWarsPosition = new THREE.Vector3(-130, 0, 1400);
 let badApplePosition = new THREE.Vector3(-116, -30, 1200);
-let oregairuPosition = new THREE.Vector3(-100, -100, 1000);
-let bleachPosition = new THREE.Vector3(-130, -62, 800);
+let oreSnafuPosition = new THREE.Vector3(-100, -100, 1000);
+let bliQstPosition = new THREE.Vector3(-130, -62, 800);
 let glPosition = new THREE.Vector3(-130, -146, 600);
 let igPosition = new THREE.Vector3(-120, -146, 400);
 let fftPosition = new THREE.Vector3(-130, -122, 200);
@@ -34,13 +34,13 @@ let fftPosition = new THREE.Vector3(-130, -122, 200);
 let xMenu = Galaxy.xMenuFlag;
 let kqMenuPosition = new THREE.Vector3(-xMenu,
 	Galaxy.getGalaxyModelViewY() + menuFlagAddY, -100 + MainInit.meanZ);
-let robotsPVZMenuPosition = new THREE.Vector3(-xMenu,
+let eatWarsMenuPosition = new THREE.Vector3(-xMenu,
 	Galaxy.getGalaxyModelViewY() + menuFlagAddY, -32 + MainInit.meanZ);
 let badAppleMenuPosition = new THREE.Vector3(-xMenu,
 	Galaxy.getGalaxyModelViewY() + menuFlagAddY, 36 + MainInit.meanZ)
-let oregairuMenuPosition = new THREE.Vector3(-xMenu,
+let oreSnafuMenuPosition = new THREE.Vector3(-xMenu,
 	Galaxy.getGalaxyModelViewY() + menuFlagAddY, 136 + MainInit.meanZ);
-let bleachMenuPosition = new THREE.Vector3(-xMenu,
+let bliQstMenuPosition = new THREE.Vector3(-xMenu,
 	Galaxy.getGalaxyModelViewY() + menuFlagAddY, 236 + MainInit.meanZ);
 let glMenuPosition = new THREE.Vector3(xMenu,
 	Galaxy.getGalaxyModelViewY() + menuFlagAddY, -100 + MainInit.meanZ);
@@ -54,8 +54,8 @@ let kqPlanet = new Planet("res/imgs/planets/Planet_Fiery.png", 40,
 kqPlanet.addRing(2, 8, "res/imgs/rings/Blue.jpg", null, 0.6, "cyan");
 kqPlanet.addRing(10, 10, "res/imgs/rings/Green.png", null, 6, 0x79B23F);
 let kqFlag = new Flag(106, 60,
-	null, "res/vids/Keqing.mp4",
-	1, 106, 0xFFFFFF, "ProjectKeqing", 0, 0,
+	null, "res/vids/KeqEngine.mp4",
+	1, 106, 0xFFFFFF, "ProjectKeqEngine", 0, 0,
 	null,
 	"res/imgs/icons/Icon_C++.png",
 	"res/imgs/icons/Icon_SDL2.png",
@@ -69,22 +69,22 @@ kqMenuFlag.rotateX(-Math.PI / 2);
 galaxy.addMenuFlag(kqMenuFlag);
 LoadingScreen.updateCount();
 
-let robotsPVZPlanet = new Planet("res/imgs/planets/Planet_Grass0.jpg", 26,
-	robotsPVZPosition, 6, "green");
-robotsPVZPlanet.addRing(2, 8, "res/imgs/rings/Orange.jpg", null, 2, "orange");
-let robotsPVZFlag = new Flag(100, 60,
+let eatWarsPlanet = new Planet("res/imgs/planets/Planet_Grass0.jpg", 26,
+	eatWarsPosition, 6, "green");
+eatWarsPlanet.addRing(2, 8, "res/imgs/rings/Orange.jpg", null, 2, "orange");
+let eatWarsFlag = new Flag(100, 60,
 	"res/imgs/WIP.jpg", null,
-	1, 100, 0xFFFFFF, "ProjectRobotsPVZ", 0, 0,
+	1, 100, 0xFFFFFF, "ProjectEatWars", 0, 0,
 	null,
 	"res/imgs/icons/Icon_C++.png",
 	"res/imgs/icons/Icon_UnrealEngine.jpg",
 	"res/imgs/icons/Icon_VisualStudio.png");
-robotsPVZPlanet.setFlag(robotsPVZFlag);
-galaxy.addPlanet(robotsPVZPlanet);
-let robotsPVZMenuFlag = robotsPVZFlag.cloneForMenu();
-robotsPVZMenuFlag.position.copy(robotsPVZMenuPosition);
-robotsPVZMenuFlag.rotateX(-Math.PI / 2);
-galaxy.addMenuFlag(robotsPVZMenuFlag);
+eatWarsPlanet.setFlag(eatWarsFlag);
+galaxy.addPlanet(eatWarsPlanet);
+let eatWarsMenuFlag = eatWarsFlag.cloneForMenu();
+eatWarsMenuFlag.position.copy(eatWarsMenuPosition);
+eatWarsMenuFlag.rotateX(-Math.PI / 2);
+galaxy.addMenuFlag(eatWarsMenuFlag);
 LoadingScreen.updateCount();
 
 let badApplePlanet = new Planet("res/imgs/planets/Planet_Frozen.jpg", 36,
@@ -106,39 +106,39 @@ badAppleMenuFlag.rotateX(-Math.PI / 2);
 galaxy.addMenuFlag(badAppleMenuFlag);
 LoadingScreen.updateCount();
 
-let oregairuPlanet = new Planet("res/imgs/planets/Planet_Lava.jpg", 30,
-	oregairuPosition, 0.4, "red");
-oregairuPlanet.addRing(2, 8, "res/imgs/rings/Blue.jpg", null, 0.6, "cyan");
-let oregairuFlag = new Flag(60, 124,
-	null, "res/vids/Oregairu.mp4",
-	1, 160, 0xFFFFFF, "ProjectOregairu", 0, 0,
+let oreSnafuPlanet = new Planet("res/imgs/planets/Planet_Lava.jpg", 30,
+	oreSnafuPosition, 0.4, "red");
+oreSnafuPlanet.addRing(2, 8, "res/imgs/rings/Blue.jpg", null, 0.6, "cyan");
+let oreSnafuFlag = new Flag(60, 124,
+	null, "res/vids/OreSnafu.mp4",
+	1, 160, 0xFFFFFF, "ProjectOreSnafu", 0, 0,
 	null,
 	"res/imgs/icons/Icon_Java.png",
 	"res/imgs/icons/Icon_AndroidStudio.png");
-oregairuPlanet.setFlag(oregairuFlag);
-galaxy.addPlanet(oregairuPlanet);
-let oregairuMenuFlag = oregairuFlag.cloneForMenu();
-oregairuMenuFlag.position.copy(oregairuMenuPosition);
-oregairuMenuFlag.rotateX(-Math.PI / 2);
-galaxy.addMenuFlag(oregairuMenuFlag);
+oreSnafuPlanet.setFlag(oreSnafuFlag);
+galaxy.addPlanet(oreSnafuPlanet);
+let oreSnafuMenuFlag = oreSnafuFlag.cloneForMenu();
+oreSnafuMenuFlag.position.copy(oreSnafuMenuPosition);
+oreSnafuMenuFlag.rotateX(-Math.PI / 2);
+galaxy.addMenuFlag(oreSnafuMenuFlag);
 LoadingScreen.updateCount();
 
-let bleachPlanet = new Planet("res/imgs/planets/Planet_Purple0.png", 26,
-	bleachPosition, 1, "purple");
-bleachPlanet.addRing(2, 8, "res/imgs/rings/Green.png", null, 6, 0x79B23F);
-let bleachFlag = new Flag(112, 60,
-	null, "res/vids/Bleach.mp4",
-	1, 100, 0xFFFFFF, "ProjectBleach", 0, 0,
+let bliQstPlanet = new Planet("res/imgs/planets/Planet_Purple0.png", 26,
+	bliQstPosition, 1, "purple");
+bliQstPlanet.addRing(2, 8, "res/imgs/rings/Green.png", null, 6, 0x79B23F);
+let bliQstFlag = new Flag(112, 60,
+	null, "res/vids/BliQst.mp4",
+	1, 100, 0xFFFFFF, "ProjectBliQst", 0, 0,
 	null,
 	"res/imgs/icons/Icon_Python.png",
 	"res/imgs/icons/Icon_PyGame.png",
 	"res/imgs/icons/Icon_Pyzo.png");
-bleachPlanet.setFlag(bleachFlag);
-galaxy.addPlanet(bleachPlanet);
-let bleachMenuFlag = bleachFlag.cloneForMenu();
-bleachMenuFlag.position.copy(bleachMenuPosition);
-bleachMenuFlag.rotateX(-Math.PI / 2);
-galaxy.addMenuFlag(bleachMenuFlag);
+bliQstPlanet.setFlag(bliQstFlag);
+galaxy.addPlanet(bliQstPlanet);
+let bliQstMenuFlag = bliQstFlag.cloneForMenu();
+bliQstMenuFlag.position.copy(bliQstMenuPosition);
+bliQstMenuFlag.rotateX(-Math.PI / 2);
+galaxy.addMenuFlag(bliQstMenuFlag);
 LoadingScreen.updateCount();
 
 let glPlanet = new Planet("res/imgs/planets/Planet_Sun.jpg", 36,
@@ -147,7 +147,7 @@ glPlanet.addRing(2, 8, "res/imgs/rings/Red.png", null, 2, "red");
 glPlanet.addRing(10, 10, "res/imgs/rings/Blue.jpg", null, 0.6, "cyan");
 let glFlag = new Flag(100, 60,
 	"res/imgs/WIP.jpg", null,
-	1, 110, 0xFFFFFF, "ProjectENSIMAG_GL", 0, 0,
+	1, 110, 0xFFFFFF, "ProjectDecaCompiler", 0, 0,
 	null);
 glPlanet.setFlag(glFlag);
 galaxy.addPlanet(glPlanet);
@@ -161,8 +161,8 @@ let igPlanet = new Planet("res/imgs/planets/Planet_Yellow.png", 32,
 	igPosition, 0.6, "yellow");
 igPlanet.addRing(2, 10, "res/imgs/rings/Pink.png", null, 2, 0xFF4E87);
 let igFlag = new Flag(80, 60,
-	"res/imgs/IGPuzzle.png", null,
-	1, 100, 0xFFFFFF, "ProjectENSIMAG_IG", 0, 0,
+	"res/imgs/GUI-Library_Puzzle.png", null,
+	1, 100, 0xFFFFFF, "ProjectGUI-Library", 0, 0,
 	null,
 	"res/imgs/icons/Icon_CLanguage.png",
 	"res/imgs/icons/Icon_CLion.png");
@@ -178,8 +178,8 @@ let fftPlanet = new Planet("res/imgs/planets/Planet_Pink0.jpg", 30,
 	fftPosition, 0.6, "pink");
 fftPlanet.addRing(2, 8, "res/imgs/rings/Green.png", null, 6, 0x79B23F);
 let fftFlag = new Flag(106, 60,
-	"res/imgs/FFT.jpg", null,
-	1, 100, 0xFFFFFF, "ProjectUPMC_FFT", 0, 0,
+	"res/imgs/Vectorized-FFT.jpg", null,
+	1, 100, 0xFFFFFF, "ProjectVectorized-FFT", 0, 0,
 	null,
 	"res/imgs/icons/Icon_CLanguage.png",
 	"res/imgs/icons/Icon_AVX2.png",
