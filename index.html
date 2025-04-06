@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-37JF31F2SN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-37JF31F2SN');
+  </script>
+  <style>
+    html {
+      visibility: hidden;
+      opacity: 0;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+  <link rel="icon" type="image/x-icon" href="./assets/Icon-ffa20ff7.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyroWorld</title>
+  <script type="module" crossorigin src="./assets/index-3cc27b12.js"></script>
+  <link rel="stylesheet" href="./assets/index-669072c3.css">
+</head>
+
+<body style="background-color: rgba(42, 42, 42, 0.92);">
+  <div id="app"></div>
+
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-progress">
+      <div id="loadingBar" class="loading-value"></div>
+    </div>
+    <div id="loadingText" class="loading-text">Loading... 0%</div>
+    <div class="loading-notice">This website is made for Desktop.</div>
+  </div>
+
+  <canvas id="bg" style="display: none;"></canvas>
+
+  <div id="scrollToExplore" class="text-center-normal" style="display: none;">
+    <section class="scroll-to-explore">
+      <div class="mouse-scroll">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <div class="scroll-text" style="font-size: 22px;">Scroll to Explore</div>
+        <div class="scroll-text" style="font-size: 16px;">&ndash;</div>
+        <div class="scroll-text" style="color: #FF2400;">Click on Flags!</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="text-center">
+    <div id="projectOverviewText">
+      <p id="project-overview-wrapper">
+        <span id="projectOverviewTitle">
+          Project Title
+        </span>
+        <br>
+        <span id="projectOverviewYear">
+          2022
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <button id="buttonUp" class="button-up" style="display: none;"></button>
+  <button id="buttonDown" class="button-down" style="display: none;"></button>
+
+  <main id="main">
+    <!-- Project Template
+      <section id="ProjectId" style="display: none;">
+        <div class="el-center">
+          <h2 id="ProjectIdTitle">Project Title</h2>
+          
+          <div class="el-center-button">
+            <a href="" class="button-link" target="_blank">
+              Button Text
+            </a>
+            <a href="" class="button-link" target="_blank">
+              Button Text
+            </a>
+          </div>
+
+          <div class="el-center">
+            <img class="src-img-vertical" id="ProjectIdImg"
+                style="width: ??%" src="ProjectImage">
+            
+            <video class="src-img-horizontal" id="ProjectIdImg" style="width: ??%" autoplay loop muted>
+              <source src="ProjectVideo" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <p class="p-padding-small">
+          Year: <span id="ProjectIdYear"><b>??</b> &ndash; <b>??</b></span>.
+        </p>
+
+        <p class="p-padding-small">
+          Technology: <b>Techno</b>.
+          Technology: <b>Techno</b>, <b>Techno</b>.
+        </p>
+
+        <p class="p-padding-mid">
+          <span class="tabulation"></span>
+          Text
+        
+          <img src="Image">
+        
+          Other Text
+        </p>
+      </section>
+      -->
+
+    <!-- Project KeqEngine -->
+    <section id="ProjectKeqEngine" style="display: none;">
+      <div class="el-center">
+        <h2 id="ProjectKeqEngineTitle">KeqEngine</h2>
+
+        <div class="el-center-button">
+          <a href="about:blank" class="button-link" target="_blank">
+            Source Code
+          </a>
+        </div>
+
+        <div class="el-center">
+          <video class="src-img-horizontal" id="ProjectKeqEngineImg" style="width: 80%;" autoplay loop muted>
+            <source src="./assets/KeqEngine-ac68f106.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <p class="p-padding-small">
+        Year: <span id="ProjectKeqEngineYear"><b>June 2023</b> &ndash; <b>April 2024</b></span>.
+      </p>
+
+      <p class="p-padding-mid">
+        This information has been removed as this website is not updated anymore.
+        <br>
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+      </p>
+    </section>
+
+    <!-- Project EatWars -->
+    <section id="ProjectEatWars" style="display: none;">
+      <div class="el-center">
+        <h2 id="ProjectEatWarsTitle">EatWars</h2>
+
+        <div class="el-center-button">
+          <a href="about:blank" class="button-link" target="_blank">
+            Source Code
+          </a>
+        </div>
+        <img class="src-img-horizontal" id="ProjectEatWarsImg" style="width: 80%" src="./assets/WIP-93cf1038.jpg">
+      </div>
+      </div>
+
+      <p class="p-padding-small">
+        Year: <span id="ProjectEatWarsYear"><b>January 2024</b> &ndash; <b>February 2024</b></span>.
+      </p>
+
+      <p class="p-padding-mid">
+        This information has been removed as this website is not updated anymore.
+        <br>
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+      </p>
+    </section>
+
+    <!-- Project BadApple -->
+    <section id="ProjectBadApple" style="display: none;">
+      <div class="el-center">
+        <h2 id="ProjectBadAppleTitle">BadApple</h2>
+
+        <div class="el-center-button">
+          <a href="about:blank" class="button-link" target="_blank">
+            Source Code
+          </a>
+          <a href="about:blank" class="button-link" target="_blank">
+            YouTube Video
+          </a>
+        </div>
+
+        <div class="el-center">
+          <img class="src-img-vertical" id="ProjectBadAppleImg" style="width: 80%" src="./assets/BadApple-230bf6d9.png">
+        </div>
+      </div>
+
+      <p class="p-padding-small">
+        Year: <span id="ProjectBadAppleYear"><b>December 2023</b> &ndash; <b>January 2024</b></span>.
+      </p>
+
+      <p class="p-padding-mid">
+        This information has been removed as this website is not updated anymore.
+        <br>
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+      </p>
+    </section>
+
+    <!-- Project OreSnafu -->
+    <section id="ProjectOreSnafu" style="display: none;">
+      <div class="el-center">
+        <h2 id="ProjectOreSnafuTitle">OreSnafu</h2>
+
+        <div class="el-center-button">
+          <a href="about:blank" class="button-link" target="_blank">
+            Source Code
+          </a>
+          <a href="about:blank" class="button-link" target="_blank">
+            Download
+          </a>
+        </div>
+
+        <div class="el-center">
+          <video class="src-img-vertical" id="ProjectOreSnafuImg" style="width: 49.2%;" autoplay loop muted>
+            <source src="./assets/OreSnafu-97aa808e.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <p class="p-padding-small">
+        Year: <span id="ProjectOreSnafuYear"><b>May 2019</b> &ndash; <b>July 2019</b></span>.
+      </p>
+
+      <p class="p-padding-mid">
+        This information has been removed as this website is not updated anymore.
+        <br>
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+      </p>
+    </section>
+
+    <!-- Project BliQst -->
+    <section id="ProjectBliQst" style="display: none;">
+      <div class="el-center">
+        <h2 id="ProjectBliQstTitle">BliQst</h2>
+
+        <div class="el-center-button">
+          <a href="about:blank" class="button-link" target="_blank">
+            Source Code
+          </a>
+          <a href="about:blank" class="button-link" target="_blank">
+            Download
+          </a>
+        </div>
+
+        <div class="el-center">
+          <video class="src-img-horizontal" id="ProjectBliQstImg" style="width: 80%" autoplay loop muted>
+            <source src="./assets/BliQst-4b06ee19.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <p class="p-padding-small">
+        Year: <span id="ProjectBliQstYear"><b>2018</b></span>.
+      </p>
+
+      <p class="p-padding-mid">
+        This information has been removed as this website is not updated anymore.
+        <br>
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+      </p>
+    </section>
+
+    <!-- Project DecaCompiler -->
+    <section id="ProjectDecaCompiler" style="display: none;">
+      <div class="el-center">
+        <h2 id="ProjectDecaCompilerTitle">Deca-Compiler</h2>
+
+        <div class="el-center-button">
+          <a href="about:blank" class="button-link" target="_blank">
+            Source Code
+          </a>
+        </div>
+
+        <div class="el-center">
+          <img class="src-img-vertical" id="ProjectDecaCompilerImg" style="width: 80%" src="./assets/WIP-93cf1038.jpg">
+        </div>
+      </div>
+
+      <p class="p-padding-small">
+        Year: <span id="ProjectDecaCompilerYear"><b>December 2023</b> &ndash; <b>January 2024</b></span>.
+      </p>
+
+      <p class="p-padding-mid">
+        This information has been removed as this website is not updated anymore.
+        <br>
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+      </p>
+    </section>
+
+    <!-- Project GUI-Library -->
+    <section id="ProjectGUI-Library" style="display: none;">
+      <div class="el-center">
+        <h2 id="ProjectGUI-LibraryTitle">GUI-Library</h2>
+
+        <div class="el-center-button">
+          <a href="about:blank" class="button-link" target="_blank">
+            Source Code
+          </a>
+        </div>
+
+        <div class="el-center">
+          <img class="src-img-horizontal" id="ProjectGUI-LibraryImg" style="width: 80%"
+            src="./assets/GUI-Library_Puzzle-9d50fb48.png">
+        </div>
+      </div>
+
+      <p class="p-padding-small">
+        Year: <span id="ProjectGUI-LibraryYear"><b>May 2023</b></span>.
+      </p>
+
+      <p class="p-padding-mid">
+        This information has been removed as this website is not updated anymore.
+        <br>
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+      </p>
+    </section>
+
+    <!-- Project Vectorized-FFT -->
+    <section id="ProjectVectorized-FFT" style="display: none;">
+      <div class="el-center">
+        <h2 id="ProjectVectorized-FFTTitle">Vectorized-FFT</h2>
+
+        <div class="el-center-button">
+          <a href="about:blank" class="button-link" target="_blank">
+            Source Code
+          </a>
+          <a href="about:blank" target="_blank" class="button-link">
+            Project Report
+          </a>
+          <a href="about:blank" target="_blank" class="button-link">
+            Project Slides
+          </a>
+        </div>
+
+        <div class="el-center">
+          <img class="src-img-horizontal" id="ProjectVectorized-FFTImg" style="width: 80%"
+            src="./assets/Vectorized-FFT-f53f6729.jpg">
+        </div>
+      </div>
+
+      <p class="p-padding-small">
+        Year: <span id="ProjectVectorized-FFTYear"><b>January 2022</b> &ndash; <b>July 2022</b></span>.
+      </p>
+
+      <p class="p-padding-mid">
+        This information has been removed as this website is not updated anymore.
+        <br>
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+      </p>
+    </section>
+
+    <button id="closeButton" class="close-button" style="display: none;">
+      <span class="cross">&#10006;</span>
+    </button>
+
+  </main>
+
+  <main id="aboutSection" style="display: none;">
+    <section id="aboutSectionContent">
+      <div class="el-center">
+        <h2>About Me</h2>
+      </div>
+      <p class="p-padding-mid">
+        This information has been removed as this website is not updated anymore.
+        <br>
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+        = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+      </p>
+    </section>
+  </main>
+
+  <div id="menu" class="menu" style="display: none;">
+    <div id="menuRoad" class="menu-clickable">Road</div>
+    <div id="menuOverview" class="menu-clickable">Overview</div>
+    <div id="menuAbout" class="menu-clickable">About Me</div>
+  </div>
+
+  <div id="socialIcons" class="social-icons" style="display: none;">
+    <a href="about:blank" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.58 31.77">
+        <path fill="white"
+          d="M16.29,0a16.29,16.29,0,0,0-5.15,31.75c.82.15,1.11-.36,1.11-.79s0-1.41,0-2.77C7.7,29.18,6.74,26,6.74,26a4.36,4.36,0,0,0-1.81-2.39c-1.47-1,.12-1,.12-1a3.43,3.43,0,0,1,2.49,1.68,3.48,3.48,0,0,0,4.74,1.36,3.46,3.46,0,0,1,1-2.18c-3.62-.41-7.42-1.81-7.42-8a6.3,6.3,0,0,1,1.67-4.37,5.94,5.94,0,0,1,.16-4.31s1.37-.44,4.48,1.67a15.41,15.41,0,0,1,8.16,0c3.11-2.11,4.47-1.67,4.47-1.67A5.91,5.91,0,0,1,25,11.07a6.3,6.3,0,0,1,1.67,4.37c0,6.26-3.81,7.63-7.44,8a3.85,3.85,0,0,1,1.11,3c0,2.18,0,3.94,0,4.47s.29.94,1.12.78A16.29,16.29,0,0,0,16.29,0Z">
+        </path>
+      </svg>
+    </a>
+    <a href="about:blank" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 492 318.2">
+        <path fill="white"
+          d="M143.6,83.9q51.3,33.15,102.5,66.2a21.41,21.41,0,0,0,1.9-1.3q67-43.35,134-86.6L477.1.7a19,19,0,0,0-5.4-.7H20.4A23.47,23.47,0,0,0,15,.7Q79.35,42.4,143.6,83.9Z">
+        </path>
+        <path fill="white"
+          d="M389.6,203.9q51.15,48.15,102.3,96.2a17.7,17.7,0,0,0,.1-2.3V20.4a20.1,20.1,0,0,0-2.5-9.8Q422.75,53.65,356.1,96.8c-15.9,10.3-31.7,20.5-47.6,30.8Z">
+        </path>
+        <path fill="white"
+          d="M348.6,191.3q-28.2-26.55-56.4-53l-42.3,27.3a7.4,7.4,0,0,1-7.6,0c-1.9-1.2-3.8-2.5-5.7-3.7q-18.3-11.85-36.6-23.6l-89.9,84.5Q60.6,269.3,11,315.9a21,21,0,0,0,9.3,2.3H471.6a19.41,19.41,0,0,0,9.3-2.3Q414.9,253.5,348.6,191.3Z">
+        </path>
+        <path fill="white"
+          d="M2,298.4q67.05-63,134-126c15.9-14.9,31.7-29.8,47.6-44.8q-40.5-26.25-81.1-52.4Q52.55,43,2.5,10.6A20.1,20.1,0,0,0,0,20.4V297.7c0,.8.1,1.6.1,2.3A14.62,14.62,0,0,0,2,298.4Z">
+        </path>
+      </svg>
+    </a>
+  </div>
+
+  <div id="progressContainer" class="progress">
+    <div id="progressBar" class="progress-value"></div>
+  </div>
+
+  <div id="progressInfoText" class="progress-info-text">Personal Projects</div>
+
+  <svg id="soundEqualizer" class="equalizer" viewBox="0 0 99 62" style="enable-background:new 0 0 99 62;"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <line stroke="white" stroke-width="2" x1="99" y1="0" x2="0" y2="0"></line>
+    <line id="sEL0" data-equalizer-line="" class="equalizer-line" stroke="white" stroke-width="12" x1="85.6" y1="60"
+      x2="85.6" y2="0" data-svg-origin="85.5999984741211 0" style="transform-origin: 0px 0px;"
+      transform="matrix(1,0,0,0.7153,0,0)"></line>
+    <line id="sEL1" data-equalizer-line="" class="equalizer-line" stroke="white" stroke-width="12" x1="67.6" y1="60"
+      x2="67.6" y2="0" data-svg-origin="67.5999984741211 0" style="transform-origin: 0px 0px;"
+      transform="matrix(1,0,0,0.5773,0,0)"></line>
+    <line id="sEL2" data-equalizer-line="" class="equalizer-line" stroke="white" stroke-width="12" x1="49.6" y1="60"
+      x2="49.6" y2="0" data-svg-origin="49.599998474121094 0" style="transform-origin: 0px 0px;"
+      transform="matrix(1,0,0,0.1453,0,0)"></line>
+    <line id="sEL3" data-equalizer-line="" class="equalizer-line" stroke="white" stroke-width="12" x1="31.6" y1="60"
+      x2="31.6" y2="0" data-svg-origin="31.600000381469727 0" style="transform-origin: 0px 0px;"
+      transform="matrix(1,0,0,0.7825,0,0)"></line>
+    <line id="sEL4" data-equalizer-line="" class="equalizer-line" stroke="white" stroke-width="12" x1="13.6" y1="60"
+      x2="13.6" y2="0" data-svg-origin="13.600000381469727 0" transform="matrix(1,0,0,0.5184,0,0)"
+      style="transform-origin: 0px 0px;"></line>
+  </svg>
+
+  <div id="rotateContainer" class="rotate-container" style="display: none;">
+    <div class="phone">
+    </div>
+    <div class="message">
+      Please rotate your device !
+    </div>
+  </div>
+
+  
+
+  
+  <style>
+    html {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</body>
+
+</html>
